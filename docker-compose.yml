@@ -1,0 +1,17 @@
+version: "3.7"
+services:
+  redis:
+    container_name: redisDB
+    restart: always
+    image: redis:latest
+    ports:
+      - "6379:6379"
+    volumes:
+      - ./data/redis:/data
+      - ./data/redis/conf:/usr/local/etc/redis
+    networks:
+      - project_network
+volumes:
+  data:
+networks:
+  project_network:
